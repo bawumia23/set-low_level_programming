@@ -22,3 +22,8 @@ This project covers:
    - File: 0-positive_or_negative.c
    - Uses if/else if/else conditions
    - Random numbers generated each run
+
+2. **I sometimes suffer from insomnia** - Program that prints the alphabet in lowercase
+   - File: 2-print_alphabet.c
+   - Uses only putchar (twice)
+   - Uses a loop to iterate through letters
