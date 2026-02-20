@@ -48,3 +48,8 @@ This project covers:
    - Uses only int variables
    - Uses putchar twice only
    - Converts int to ASCII using '0' + num
+
+7. **Smile in the mirror** - Program that prints lowercase alphabet in reverse
+   - File: 7-print_tebahpla.c
+   - Uses only putchar (twice)
+   - Loop from 'z' down to 'a'
