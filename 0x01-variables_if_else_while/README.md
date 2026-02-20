@@ -32,3 +32,8 @@ This project covers:
    - File: 3-print_alphabets.c
    - Uses only putchar (three times)
    - Two loops: one for lowercase, one for uppercase
+
+4. **When I was having that alphabet soup** - Program that prints alphabet except 'e' and 'q'
+   - File: 4-print_alphabt.c
+   - Uses only putchar (twice)
+   - Uses if condition to skip specific letters
