@@ -37,3 +37,8 @@ This project covers:
    - File: 4-print_alphabt.c
    - Uses only putchar (twice)
    - Uses if condition to skip specific letters
+
+5. **Print numbers** - Program that prints all single digit numbers of base 10 (0-9)
+   - File: 5-print_numbers.c
+   - Uses putchar to print digits
+   - Loop from 0 to 9
