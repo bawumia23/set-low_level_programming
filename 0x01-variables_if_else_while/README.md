@@ -42,3 +42,9 @@ This project covers:
    - File: 5-print_numbers.c
    - Uses putchar to print digits
    - Loop from 0 to 9
+
+6. **Numberz** - Program that prints numbers 0-9 without using char variables
+   - File: 6-print_numberz.c
+   - Uses only int variables
+   - Uses putchar twice only
+   - Converts int to ASCII using '0' + num
