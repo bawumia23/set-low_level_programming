@@ -27,3 +27,8 @@ This project covers:
    - File: 2-print_alphabet.c
    - Uses only putchar (twice)
    - Uses a loop to iterate through letters
+
+3. **alphABET** - Program that prints lowercase then uppercase alphabet
+   - File: 3-print_alphabets.c
+   - Uses only putchar (three times)
+   - Two loops: one for lowercase, one for uppercase
