@@ -53,3 +53,9 @@ This project covers:
    - File: 7-print_tebahpla.c
    - Uses only putchar (twice)
    - Loop from 'z' down to 'a'
+
+8. **Hexadecimal** - Program that prints all numbers of base 16 in lowercase
+   - File: 8-print_base16.c
+   - Prints: 0123456789abcdef
+   - Uses putchar three times
+   - Two loops: one for digits 0-9, one for letters a-f
