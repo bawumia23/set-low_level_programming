@@ -59,3 +59,10 @@ This project covers:
    - Prints: 0123456789abcdef
    - Uses putchar three times
    - Two loops: one for digits 0-9, one for letters a-f
+
+9. **Patience, persistence and perspiration** - Program that prints combinations of single-digit numbers
+   - File: 9-print_comb.c
+   - Prints: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+   - Uses putchar (max 4 times)
+   - No char variables (only int)
+   - Adds comma and space after each number except the last
