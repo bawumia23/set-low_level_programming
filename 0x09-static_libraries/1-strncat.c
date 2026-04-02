@@ -1,11 +1,11 @@
-char *_strcat(char *dest, char *src)
+char *_strncat(char *dest, char *src, int n)
 {
     int i = 0, j = 0;
 
     while (dest[i])
         i++;
 
-    while (src[j])
+    while (src[j] && j < n)
     {
         dest[i] = src[j];
         i++;
