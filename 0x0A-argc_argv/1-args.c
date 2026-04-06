@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * print_number - prints an integer using _putchar
- * @n: number to print
+ * print_number - prints an integer
+ * @n: number
  */
 void print_number(int n)
 {
@@ -13,7 +13,7 @@ void print_number(int n)
 }
 
 /**
- * main - prints the number of arguments passed
+ * main - prints number of arguments
  * @argc: argument count
  * @argv: argument vector
  *
@@ -23,7 +23,11 @@ int main(int argc, char *argv[])
 {
 	(void)argv;
 
-	print_number(argc - 1);
+	if (argc == 1)
+		print_number(0);
+	else
+		print_number(argc);
+
 	_putchar('\n');
 
 	return (0);
