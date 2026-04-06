@@ -1,23 +1,17 @@
 #include "main.h"
 
 /**
- * _putchar - writes a character to stdout (provided by the system)
- * @c: The character to print
- *
- * Return: On success 1, on error -1
- */
-int _putchar(char c);
-
-/**
- * main - prints its name, followed by a new line
+ * main - prints the name of the program
  * @argc: argument count
  * @argv: argument vector
  *
- * Return: Always 0 (Success)
+ * Return: 0
  */
-int main(int argc __attribute__((unused)), char *argv[])
+int main(int argc, char *argv[])
 {
 	int i = 0;
+
+	(void)argc;
 
 	while (argv[0][i] != '\0')
 	{
@@ -25,5 +19,6 @@ int main(int argc __attribute__((unused)), char *argv[])
 		i++;
 	}
 	_putchar('\n');
+
 	return (0);
 }
