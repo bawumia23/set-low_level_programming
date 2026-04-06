@@ -1,27 +1,35 @@
 #include "main.h"
 
 /**
- * print_number - Prints an integer using _putchar
- * @n: The integer to print
+ * print_number - prints an integer
+ * @n: integer to be printed
  */
 void print_number(int n)
 {
+	if (n < 0)
+	{
+		_putchar('-');
+		n = -n;
+	}
+
 	if (n / 10)
 		print_number(n / 10);
+
 	_putchar((n % 10) + '0');
 }
 
 /**
- * main - Prints the number of arguments passed into it
- * @argc: Number of arguments
- * @argv: Array of arguments
+ * main - prints the number of arguments passed into it
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
- * Return: Always 0
+ * Return: 0
  */
 int main(int argc, char *argv[] __attribute__((unused)))
 {
-	print_number(argc - 1);
-	_putchar('\n');
+	/* argc - 1 gives the number of arguments excluding the program name */
+	print_number(argc);
+	_putchar('\n'); 
 
 	return (0);
 }
