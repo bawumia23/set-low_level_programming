@@ -2,17 +2,18 @@
 
 /**
  * main - prints the name of the program
- * @argc: argument count
- * @argv: argument vector
+ * @argc: number of arguments
+ * @argv: array of arguments
  *
- * Return: 0
+ * Return: Always 0
  */
 int main(int argc, char *argv[])
 {
-	int i = 0;
+	int i;
 
 	(void)argc;
 
+	i = 0;
 	while (argv[0][i] != '\0')
 	{
 		_putchar(argv[0][i]);
