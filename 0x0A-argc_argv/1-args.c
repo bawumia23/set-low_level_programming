@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 {
 	(void)argv;
 
-	print_number(argc);
+	print_number(argc - 1);
 	_putchar('\n');
 
 	return (0);
