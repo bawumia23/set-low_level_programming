@@ -1,37 +1,26 @@
 #include "main.h"
 
 /**
- * main - prints the number of arguments passed into it
- * @argc: number of arguments
- * @argv: array of strings (unused)
+ * print_number - Prints an integer using _putchar
+ * @n: The integer to print
+ */
+void print_number(int n)
+{
+	if (n / 10)
+		print_number(n / 10);
+	_putchar((n % 10) + '0');
+}
+
+/**
+ * main - Prints the number of arguments passed into it
+ * @argc: Number of arguments
+ * @argv: Array of arguments
  *
- * Return: 0
+ * Return: Always 0
  */
 int main(int argc, char *argv[] __attribute__((unused)))
 {
-	int count = argc - 1;
-	int temp, divisor = 1;
-
-	if (count == 0)
-	{
-		_putchar('0');
-	}
-	else
-	{
-		temp = count;
-		/* Find the highest power of 10 to start printing from the left */
-		while (temp / 10 > 0)
-		{
-			divisor *= 10;
-			temp /= 10;
-		}
-
-		while (divisor > 0)
-		{
-			_putchar(((count / divisor) % 10) + '0');
-			divisor /= 10;
-		}
-	}
+	print_number(argc - 1);
 	_putchar('\n');
 
 	return (0);
