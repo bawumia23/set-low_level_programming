@@ -73,18 +73,20 @@ static listint_t *find_loop(const listint_t *head)
 	const listint_t *slow;
 	const listint_t *fast;
 
-	if (head == NULL)
+	if (head == NULL || head->next == NULL)
 		return (NULL);
-	slow = head;
-	fast = head;
-	while (1)
+	slow = head->next;
+	if (slow == head)
+		return ((listint_t *)head);
+	if (slow->next == NULL)
+		return (NULL);
+	fast = head->next->next;
+	while (fast != slow)
 	{
 		if (fast->next == NULL || fast->next->next == NULL)
 			return (NULL);
 		slow = slow->next;
 		fast = fast->next->next;
-		if (slow == fast)
-			break;
 	}
 	slow = head;
 	while (slow != fast)
@@ -118,7 +120,6 @@ size_t print_listint_safe(const listint_t *head)
 			_putchar('>');
 			_putchar(' ');
 			print_node(loop_node);
-			count++;
 			break;
 		}
 		print_node(tmp);
