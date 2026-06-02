@@ -63,38 +63,24 @@ static void print_node(const listint_t *node)
 }
 
 /**
- * find_loop - finds the node where a loop starts
- * @head: pointer to the head of the list
+ * is_visited - checks if a node was already visited
+ * @visited: array of visited nodes
+ * @count: number of nodes visited
+ * @node: node to check
  *
- * Return: pointer to loop start node, or NULL
+ * Return: 1 if visited, 0 otherwise
  */
-static listint_t *find_loop(const listint_t *head)
+static int is_visited(const listint_t **visited,
+		size_t count, const listint_t *node)
 {
-	const listint_t *slow;
-	const listint_t *fast;
+	size_t i;
 
-	if (head == NULL || head->next == NULL)
-		return (NULL);
-	slow = head->next;
-	if (slow == head)
-		return ((listint_t *)head);
-	if (slow->next == NULL)
-		return (NULL);
-	fast = head->next->next;
-	while (fast != slow)
+	for (i = 0; i < count; i++)
 	{
-		if (fast->next == NULL || fast->next->next == NULL)
-			return (NULL);
-		slow = slow->next;
-		fast = fast->next->next;
+		if (visited[i] == node)
+			return (1);
 	}
-	slow = head;
-	while (slow != fast)
-	{
-		slow = slow->next;
-		fast = fast->next;
-	}
-	return ((listint_t *)slow);
+	return (0);
 }
 
 /**
@@ -106,25 +92,46 @@ static listint_t *find_loop(const listint_t *head)
 size_t print_listint_safe(const listint_t *head)
 {
 	size_t count;
-	const listint_t *loop_node;
+	size_t size;
+	size_t i;
+	const listint_t **visited;
+	const listint_t **new_v;
 	const listint_t *tmp;
 
+	if (head == NULL)
+		return (0);
+	size = 1024;
+	visited = malloc(sizeof(listint_t *) * size);
+	if (visited == NULL)
+		exit(98);
 	count = 0;
-	loop_node = find_loop(head);
 	tmp = head;
 	while (tmp != NULL)
 	{
-		if (tmp == loop_node && count > 0)
+		if (is_visited(visited, count, tmp))
 		{
 			_putchar('-');
 			_putchar('>');
 			_putchar(' ');
-			print_node(loop_node);
-			break;
+			print_node(tmp);
+			free(visited);
+			return (count);
 		}
+		if (count >= size)
+		{
+			size *= 2;
+			new_v = malloc(sizeof(listint_t *) * size);
+			if (new_v == NULL)
+				exit(98);
+			for (i = 0; i < count; i++)
+				new_v[i] = visited[i];
+			free(visited);
+			visited = new_v;
+		}
+		visited[count++] = tmp;
 		print_node(tmp);
-		count++;
 		tmp = tmp->next;
 	}
+	free(visited);
 	return (count);
 }
