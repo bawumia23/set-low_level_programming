@@ -2,34 +2,42 @@
 #include <stdlib.h>
 
 /**
- * free_listint_safe - frees a listint_t list safely (even with loops)
- * @h: pointer to head pointer
+ * free_listint_safe - frees a listint_t linked list safely
+ * @h: pointer to pointer to the head of the list
  *
- * Return: number of nodes freed
+ * Return: size of the list that was freed
  */
 size_t free_listint_safe(listint_t **h)
 {
-	size_t count = 0;
+	listint_t *slow;
+	listint_t *fast;
 	listint_t *tmp;
-	listint_t *next;
+	size_t count;
 
-	if (h == NULL)
+	if (h == NULL || *h == NULL)
 		return (0);
 
-	tmp = *h;
+	slow = *h;
+	fast = *h;
+	count = 0;
 
-	while (tmp)
+	while (fast != NULL && fast->next != NULL)
 	{
-		next = tmp->next;
-
-		free(tmp);
-		count++;
-
-		/* break if loop detected (next already freed memory case avoided by order) */
-		if (next == NULL)
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast)
+		{
+			slow->next = NULL;
 			break;
+		}
+	}
 
-		tmp = next;
+	while (*h != NULL)
+	{
+		tmp = (*h)->next;
+		free(*h);
+		*h = tmp;
+		count++;
 	}
 
 	*h = NULL;
